@@ -8,9 +8,6 @@ const restaurant = {
     starterMenu: ["Focaccia", "Brochette", "Garlic Bread", "Capers Salad"],
     mainMenu: ["Pizza", "Pasta", "Risotto", "wings"],
     //function inside an object
-    order: function (starterIndex, mainIndex) {
-        return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-    },
     //ES6 enhanced object literals
     openingHours: {
         thu: {
@@ -27,7 +24,38 @@ const restaurant = {
             close: 24,
         }
     },
+    order: function (starterIndex, mainIndex) {
+        return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+    },
+    // orderDelivery: function ({ starterIndex = 0, mainIndex, time, address }) {
+    //     console.log(`Address:${address}\nTime:${time}\nMain Course:${mainIndex}\nStarter: ${starterIndex}`)
+    // }
+
+    orderDelivery: function (obj) {
+        console.log(obj);
+    },
+    orderDelivery2: function ({ time, address, starterIndex, mainIndex }) {
+        console.log(`time: ${time}\nAddress: ${address}\n${this.starterMenu[starterIndex]}\n${this.mainMenu[mainIndex]}`);
+
+    }
 };
+
+
+
+restaurant.orderDelivery({
+    time: '22:30',
+    address: 'Via del Sole, 21',
+    mainIndex: 2,
+    starterIndex: 1
+});
+
+restaurant.orderDelivery2({
+    time: '22:30',
+    address: 'Via del Sole, 21',
+    mainIndex: 2,
+    starterIndex: 1
+});
+
 
 const { name, openingHours, categories } = restaurant;
 console.log(name, openingHours, categories);
