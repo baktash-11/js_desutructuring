@@ -4,7 +4,7 @@
     box-sizing: border-box; 
 }
 body{
-    background: rgb(3,0,46);
-    background: linear-gradient(48deg, rgba(3,0,46,1) 0%, rgba(9,9,121,1) 31%, rgba(149,217,231,1) 100%);
-    color: whitesmoke;
+    /* background: rgb(14,68,255); */
+background: linear-gradient(48deg, rgba(14,68,255,0.5000632424024666) 0%, rgba(0,168,29,0.5032078964905169) 54%, rgba(255,250,0,0.49691858831441627) 100%);
+    color: #000;
 }

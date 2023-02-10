@@ -1,7 +1,5 @@
-
-"use strict"
-console.log("Array and object's destructuring");
-
+"use strict";   // Use strict mode
+console.log("object destructuring");
 //creating an object
 const restaurant = {
     name: "Classics Italiane",
@@ -9,49 +7,47 @@ const restaurant = {
     categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
     starterMenu: ["Focaccia", "Brochette", "Garlic Bread", "Capers Salad"],
     mainMenu: ["Pizza", "Pasta", "Risotto", "wings"],
+    //function inside an object
     order: function (starterIndex, mainIndex) {
         return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-    }
+    },
+    //ES6 enhanced object literals
+    openingHours: {
+        thu: {
+            open: 12,
+            close: 22,
+
+        },
+        fri: {
+            open: 11,
+            close: 23,
+        },
+        sat: {
+            open: 0, // open 24 hours
+            close: 24,
+        }
+    },
 };
 
-//destructuring is a way to extract data from an array or object and store it in a variable
-const arr = [2, 3, 4];
-const a = arr[0];
-const b = arr[1];
-const c = arr[2];
-console.log(a, b, c);
-//destructuring array
-//destructuring assignment
-//destructuring will not work if the array is empty
-//destructuring does  not mutate the original array, it copies its elements to the variables
-const [x, y, z] = arr;
-console.log(x, y, z);
-//we can also use destructuring to assign values to variables. This is called destructuring assignment
-//destructuring object's property categories in to variables first and second
-let [first, second] = restaurant.categories;
-console.log(first, second);
-//to copy the first and third element of the array
-[first, , second] = restaurant.categories;
-//we notice that the second element is skipped. This is because we have an empty space in the array
-console.log(first, second);
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+//to change the name of the variable
+const { name: restaurantName, openingHours: hours, categories: tags } = restaurant;
+console.log(restaurantName, hours, tags);
+// console.log(restaurant);
 
-//switching variables using destructuring
-[first, second] = [second, first];
-console.log(first, second);
+//default values
+// we will get an empty array menu as default value
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
 
-let [start, maim] = restaurant.order(2, 3);
-console.log(start, maim);
+//mutating variables
+let a = 111;
+let b = 999;
+let obj = { a: 23, b: 7, c: 14 };
+({ a, b } = obj);
+console.log(a, b);
+//nested objects
+const { fri: { open, close } } = openingHours;
 
-let nested = [2, 4, [5, 6]];
-let [i, , j] = nested;
-console.log(i, j);
-//destructuring nested array
-let [p, , [q, r]] = nested;
-console.log(p, q, r);
-
-//Default values
-//if the array has less elements than the variables, the variables will be undefined
-//to avoid this, we can set default values
-const [k = 1, l = 1, m = 1] = [8, 9];
-console.log(k, l, m);
-
+console.log(open, close);
