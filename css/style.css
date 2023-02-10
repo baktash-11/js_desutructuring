@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+body{
+    background: rgb(3,0,46);
+    background: linear-gradient(48deg, rgba(3,0,46,1) 0%, rgba(9,9,121,1) 31%, rgba(149,217,231,1) 100%);
+    color: whitesmoke;
+}
